@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
 
-  resources :children
+  get '/children',     to: 'children#index'
+  get '/children/:id', to: 'children#show'
 end
