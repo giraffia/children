@@ -1,10 +1,20 @@
+<h1>Gyermekek</h1>
 
-<p>Gyermekek száma: <%=  %></p>
 
-<!-- ezt kellene táblázatba foglalni -->
-    <% @children.each do |child| %>
-      <tr>
-        <td><%= child.name %></td>
-        <!-- és a többi cella -->
-      </tr>
-    <% end %>
+
+
+<p>Gyermekek száma: <%= @children.size %></p>
+    <table border="1">
+ 
+	<tr><td>Név</td>
+	   <td>Születési idő</td>
+	   <td>Nem</td></tr>
+        <% @children.each do |child| %>
+	      <tr>
+		<td><%= child.name %></td>
+		<td><%= child.time_of_birth %></td>
+		<td><%= child.sex %></td>
+	      </tr>
+	<% end %>
+ </table> 
+   
