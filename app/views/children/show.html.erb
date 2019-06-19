@@ -1,2 +1,6 @@
-<h1>Children#show</h1>
+<h1><%= @child.name %></h1>
+<p>Neme: <%= @child.sex %> </p>
+<p>Születési ideje:<%= @child.time_of_birth %>(Év:<%= @child.age[:years] %>Hónap:<%= @child.age[:months] %>)</p>
+<p> <%= @child.days_until_next_birthday %> múlva lesz a születésnapja</p>
+
 <p>Find me in app/views/children/show.html.erb</p>
