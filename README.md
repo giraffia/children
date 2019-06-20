@@ -59,7 +59,7 @@ Az `.erb` kiterjesztésű fájlok (embedded ruby = beágyazott ruby) a `<%  %>` 
     * amelynek fejléce: "Név", "Születési idő", "Nem"
     * sorai pedig a megfelelő gyermek adatai (`name`, `time_of_birth`, `sex`) -->
 
-A `/children/:id` útvonalat a router a `ChildrenController` osztály `show` metódusába irányítja úgy, hogy az `:id` helyén lévő értéket a `params` `:id` kulcsában teszi elérhetővé. A metódus ez alapján az id alapján keresi meg a kért gyereket.
+<!-- A `/children/:id` útvonalat a router a `ChildrenController` osztály `show` metódusába irányítja úgy, hogy az `:id` helyén lévő értéket a `params` `:id` kulcsában teszi elérhetővé. A metódus ez alapján az id alapján keresi meg a kért gyereket.
 A `show` view fájlban a következőket kell megjeleníteni:
 
 * A cím a gyermek neve legyen
@@ -70,4 +70,10 @@ A `show` view fájlban a következőket kell megjeleníteni:
     * a metódus egy `Hash` adatstruktúrával tér vissza, amelynek `:years` és `:months` kulcsai adják meg, hogy hány éves, illetve hány hónapos
     * a `Hash` megfelelő kulcsához tartozó értéket a `[]` segítségével lehet elérni: `@child.age[:years]`, `@child.years[:months]`
   * hány nap van hátra a következő születésnapjáig ('123 nap múlva lesz a születésnapja')
-    * a megfelelő számot a `Child` model `days_until_next_birthday` metódusa adja meg
+    * a megfelelő számot a `Child` model `days_until_next_birthday` metódusa adja meg -->
+
+A `ChildrenController` `index` és `show` action-je közötti átjárást kellene biztosítani.
+
+* A `show.html.erb` végére kellene egy link, ami az `index`-re (`/children`) mutat
+* Az `index` view template-ben pedig a táblázatban található neveket kellene linkké alakítani, ami a megfelelő gyermek `show`-jára mutat
+  * A link `href` attribútuma határozza meg, hogy hová mutat, a nyitó és záró tag közötti szöveg pedig hogy mi a szövege
