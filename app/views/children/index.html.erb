@@ -11,10 +11,11 @@
 	   <td>Nem</td></tr>
         <% @children.each do |child| %>
 	      <tr>
-		<td><%= child.name %></td>
+		<td><a href="/children/<%= child.id %>" ><%= child.name %></a></td> 
 		<td><%= child.time_of_birth %></td>
 		<td><%= child.sex %></td>
 	      </tr>
 	<% end %>
  </table> 
    
+
