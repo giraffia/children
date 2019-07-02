@@ -1,2 +1,19 @@
-<h1>children#new</h1>
-<p>Find me in app/views/children/new.html.erb</p>
+<h1>Gyermek született!</h1>
+<p>Új gyermek adatait itt tudod felvenni.</p>
+<from action="/children"> 
+	<table border="3">
+		<tr><td>Neve:</td>
+		<td> <input type="text" name=child[name]></td></tr>
+		<tr><td>Születési idő:</td>
+		<td> <input type="text" name=child[time_of_birth]></td></tr>
+		<tr><td>Neme:</td>
+		<td>
+		 <input type="radio" name=child[sex] value="other">[diabled]<br>
+ 		 <input type="radio" name=child[sex] value="male"checked> Male<br>
+  		 <input type="radio" name=child[sex] value="female"> Female
+		<td></tr>
+		
+	</table>
+	<input type="submit" value="Mentés">
+</from>
+<a href="/children"><-Gyerekek</a>
