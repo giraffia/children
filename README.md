@@ -72,8 +72,19 @@ A `show` view fájlban a következőket kell megjeleníteni:
   * hány nap van hátra a következő születésnapjáig ('123 nap múlva lesz a születésnapja')
     * a megfelelő számot a `Child` model `days_until_next_birthday` metódusa adja meg -->
 
-A `ChildrenController` `index` és `show` action-je közötti átjárást kellene biztosítani.
+<!-- A `ChildrenController` `index` és `show` action-je közötti átjárást kellene biztosítani.
 
 * A `show.html.erb` végére kellene egy link, ami az `index`-re (`/children`) mutat
 * Az `index` view template-ben pedig a táblázatban található neveket kellene linkké alakítani, ami a megfelelő gyermek `show`-jára mutat
-  * A link `href` attribútuma határozza meg, hogy hová mutat, a nyitó és záró tag közötti szöveg pedig hogy mi a szövege
+  * A link `href` attribútuma határozza meg, hogy hová mutat, a nyitó és záró tag közötti szöveg pedig hogy mi a szövege -->
+
+A `ChildrenController` új `action`-t kapott: `#new`. Ennek a feladata, hogy űrlapot biztosítson új gyermek adatainak felvételéhez. A view a következőket kell, hogy tudja:
+
+* A cím: Gyermek született!
+* alatta egy `p` tag: Új gyermek adatait itt tudod felvenni.
+* alatta egy `form` tag, amelynek `action` attribútuma `/children` (erről majd később beszélünk), és a következő mezőket tartalmazza:
+  * név (sima szövegmező)
+  * születési idő (egyelőre sima szövegmező)
+  * neme (legördülő lista három elemmel: --Válassz!-- [diabled], male, female)
+  * mindegyik mezőnek a `name` attribútuma a következőképpen álljon össze: `child[mezőnév]` (tehát: `name=child[name]`, `name=child[time_of_birth]` és `name=child[sex]`)
+  * a végén legyen egy `input`, amelynek `type` értéke `submit`, a `value`-ja pedig `Mentés`
