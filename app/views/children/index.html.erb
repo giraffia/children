@@ -1,21 +1,20 @@
 <h1>Gyermekek</h1>
 
-
-
-
 <p>Gyermekek száma: <%= @children.size %></p>
-    <table border="1">
- 
-	<tr><td>Név</td>
-	   <td>Születési idő</td>
-	   <td>Nem</td></tr>
-        <% @children.each do |child| %>
-	      <tr>
-		<td><a href="/children/<%= child.id %>" ><%= child.name %></a></td> 
-		<td><%= child.time_of_birth %></td>
-		<td><%= child.sex %></td>
-	      </tr>
-	<% end %>
- </table> 
-   <a href="/children/new " >Új gyermek</a>
+<table border="1">
+  <tr>
+    <td>Név</td>
+    <td>Születési idő</td>
+    <td>Nem</td>
+  </tr>
+  <% @children.each do |child| %>
+    <tr>
+      <td><a href="/children/<%= child.id %>" ><%= child.name %></a></td>
+      <td><%= child.time_of_birth %></td>
+      <td><%= child.sex %></td>
+    </tr>
+  <% end %>
+</table>
 
+<!-- TODO tök jó a link, az idézőjel köré nem kellenek a szóközök -->
+<a href="/children/new " >Új gyermek</a>

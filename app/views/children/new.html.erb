@@ -1,6 +1,8 @@
 <h1>Gyermek született!</h1>
 <p>Új gyermek adatait itt tudod felvenni.</p>
+<!-- TODO nem from, hanem form, illetve kell neki egy olyan attribútum is, hogy method="post", ezt elfelejtettem, bocsi -->
 <from action="/children"> 
+<!-- TODO nem kell, a table, a mezőcímkékhez (Neve:, Születési idő:, Neme:) használj label taget -->
 	<table border="3">
 		<tr><td>Neve:</td>
 		<td> <input type="text" name=child[name]></td></tr>
@@ -8,6 +10,7 @@
 		<td> <input type="text" name=child[time_of_birth]></td></tr>
 		<tr><td>Neme:</td>
 		<td>
+      <!-- TODO a legördülő lista a select tag, az, hogy disabled, az pedig egy attribútum, amitől majd nem lehet kiválasztani az adott értéket (viszont első körben az van kiválasztva) -->
 		 <input type="radio" name=child[sex] value="other">[diabled]<br>
  		 <input type="radio" name=child[sex] value="male"checked> Male<br>
   		 <input type="radio" name=child[sex] value="female"> Female
