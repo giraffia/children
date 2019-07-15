@@ -1,17 +1,16 @@
 <h1>Gyermek született!</h1>
 <p>Új gyermek adatait itt tudod felvenni.</p>
-<form action="/children"> 
- <method="post">
-		<label>Neve:</label>
-		 <input type="text" name=child[name]><br>
-		<label>Születési idő:</label>
-		 <input type="text" name=child[time_of_birth]><br>
-		<label><td>Neme:</label>
-		<select>
-     		 <option  name=child[sex] value="other"selected disabled>[diabled]</option>
- 		 <option  name=child[sex] value="male"> Male</option>
-  		 <option  name=child[sex] value="female"> Female</option>
-		</select><br>
-		<input type="submit" value="Mentés"><br>
+<form action="/children" method="post">
+  <label>Neve:</label>
+  <input type="text" name=child[name]><br>
+  <label>Születési idő:</label>
+  <input type="text" name=child[time_of_birth]><br>
+  <label><td>Neme:</label>
+  <select>
+    <option  name=child[sex] value="other"selected disabled>-</option>
+    <option  name=child[sex] value="male"> Male</option>
+    <option  name=child[sex] value="female"> Female</option>
+  </select><br>
+  <input type="submit" value="Mentés"><br>
 </form>
 <a href="/children"><-Gyerekek</a>
