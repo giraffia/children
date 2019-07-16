@@ -78,7 +78,7 @@ A `show` view fájlban a következőket kell megjeleníteni:
 * Az `index` view template-ben pedig a táblázatban található neveket kellene linkké alakítani, ami a megfelelő gyermek `show`-jára mutat
   * A link `href` attribútuma határozza meg, hogy hová mutat, a nyitó és záró tag közötti szöveg pedig hogy mi a szövege -->
 
-A `ChildrenController` új `action`-t kapott: `#new`. Ennek a feladata, hogy űrlapot biztosítson új gyermek adatainak felvételéhez. A view a következőket kell, hogy tudja:
+<!-- A `ChildrenController` új `action`-t kapott: `#new`. Ennek a feladata, hogy űrlapot biztosítson új gyermek adatainak felvételéhez. A view a következőket kell, hogy tudja:
 
 * A cím: Gyermek született!
 * alatta egy `p` tag: Új gyermek adatait itt tudod felvenni.
@@ -87,4 +87,13 @@ A `ChildrenController` új `action`-t kapott: `#new`. Ennek a feladata, hogy űr
   * születési idő (egyelőre sima szövegmező)
   * neme (legördülő lista három elemmel: --Válassz!-- [diabled], male, female)
   * mindegyik mezőnek a `name` attribútuma a következőképpen álljon össze: `child[mezőnév]` (tehát: `name=child[name]`, `name=child[time_of_birth]` és `name=child[sex]`)
-  * a végén legyen egy `input`, amelynek `type` értéke `submit`, a `value`-ja pedig `Mentés`
+  * a végén legyen egy `input`, amelynek `type` értéke `submit`, a `value`-ja pedig `Mentés` -->
+
+A `ChildrenController#create` felelős a `#new`-ban kitöltött űrlap adatai alapján a gyermek létrehozása az adatbázisban.
+
+* Ezt a `Child` modelosztály `.create` osztálymetódusával lehet elérni
+* a `.create` osztálymetódus egy `Hash`-t fogad paraméterül, aminek kulcsai az oszlopnevek (lásd db/seeds.rb)
+* az űrlap által elküldött értékeket a `params` `:user` kulcsa alatt találod
+  * mindegyik mezőnek a `name` attribútum alapján tudod kideríteni a `params`-ban elfoglalt helyét
+  * például a Név mezőbe beírt érték a `params[:user][:name]` kódszösszenettel érhető el (vö: `name="user[name]"`)
+* egészítsd ki a `#create` action-t, hogy a `/children` oldalra visszairányítás előtt (`redirect_to '/children'`) mentse el az űrlapba beírt gyereket az adatbázisba!

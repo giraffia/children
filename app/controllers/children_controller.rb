@@ -10,4 +10,9 @@ class ChildrenController < ApplicationController
   def new
     @child = Child.new
   end
+
+  def create
+    # TODO
+    redirect_to '/children'
+  end
 end

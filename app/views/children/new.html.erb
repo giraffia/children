@@ -6,10 +6,10 @@
   <label>Születési idő:</label>
   <input type="text" name=child[time_of_birth]><br>
   <label><td>Neme:</label>
-  <select>
-    <option  name=child[sex] value="other"selected disabled>-</option>
-    <option  name=child[sex] value="male"> Male</option>
-    <option  name=child[sex] value="female"> Female</option>
+  <select name=child[sex]>
+    <option value="-" selected disabled>--Válassz!--</option>
+    <option value="male"> Male</option>
+    <option value="female"> Female</option>
   </select><br>
   <input type="submit" value="Mentés"><br>
 </form>
